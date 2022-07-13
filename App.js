@@ -2,13 +2,22 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState, useCallback, useEffect } from 'react'
 import { GiftedChat } from 'react-native-gifted-chat'
 import { StyleSheet, Text, View } from 'react-native';
+import db from "./firebase";
 
 
 export default function App() {
   const [messages, setMessages] = useState([]);
   const [placeholder, setPlaceholder] = useState("Hi dad!");
 
-  
+  useEffect(() => {
+    db.collection("Chats")
+      .doc("myfirstchat")
+      .get()
+      .then((snapshot) => {
+        console.log(snapshot.id);
+        console.log(snapshot.data());
+      });
+  }, []);
 
   useEffect(() => {
     setMessages([
