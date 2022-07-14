@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
 import { FlatList, Text, View, TouchableOpacity, StyleSheet } from "react-native";
-import db from "./firebase";
+import db from "../firebase";
+import React, { useState, useCallback, useEffect } from 'react'
 
 export default function HomeScreen({ navigation }) {
   const [chatList, setChatList] = useState([]);
