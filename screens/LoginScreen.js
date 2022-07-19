@@ -1,3 +1,7 @@
+import React, { useState, useEffect } from "react";
+import { Text, TextInput, View, TouchableOpacity, StyleSheet } from "react-native";
+import { getAuth, signOut, signInWithEmailAndPassword} from "firebase/auth";
+
 export default function LoginScreen({navigation}) {
     //State Variables for user's email and password
 	const [email, setEmail] = useState();
@@ -23,6 +27,8 @@ export default function LoginScreen({navigation}) {
             console.log(errorMessage, "<--- error message")
 		});
 	}
+
+    console.log(auth, "<-----auth object")
 
     //return outputs a screen for login where user can input email/pass
 	return (
@@ -56,3 +62,46 @@ export default function LoginScreen({navigation}) {
 		</>
 	)
 }
+
+const styles = StyleSheet.create({
+	redirectBtn: {
+		width:"80%",
+		borderRadius:25,
+		height:50,
+		alignItems:"center",
+		justifyContent:"center",
+		marginTop:40,
+		backgroundColor:"grey",
+		color: "white"
+	},
+	inputView: {
+		backgroundColor: "#FFC0CB",
+		borderRadius: 30,
+		width: "70%",
+		height: 45,
+		marginBottom: 20,
+		alignItems: "center",
+	},
+	TextInput: {
+		height: 50,
+		flex: 1,
+		padding: 10,
+		marginLeft: 20,
+	},
+	loginBtn: {
+		width:"80%",
+		borderRadius:25,
+		height:50,
+		alignItems:"center",
+		justifyContent:"center",
+		marginTop:40,
+		backgroundColor:"#FF1493",
+	},
+	bigBlue: {
+		color: 'blue',
+		fontWeight: 'bold',
+		fontSize: 30,
+		padding: 50
+	}
+})
+
