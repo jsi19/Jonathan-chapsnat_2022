@@ -61,43 +61,26 @@ export default function HomeScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-	redirectBtn: {
-		width:"80%",
+	logoutBtn: {
+		width:"50%",
 		borderRadius:25,
+		margin: 25,
 		height:50,
 		alignItems:"center",
 		justifyContent:"center",
-		marginTop:40,
 		backgroundColor:"grey",
 		color: "white"
 	},
-	inputView: {
-		backgroundColor: "#FFC0CB",
-		borderRadius: 30,
-		width: "70%",
-		height: 45,
-		marginBottom: 20,
-		alignItems: "center",
-	},
-	TextInput: {
-		height: 50,
+	container: {
 		flex: 1,
+		backgroundColor: "#fff",
+	},
+	item: {
 		padding: 10,
-		marginLeft: 20,
+		fontSize: 18,
+		height: 44,
+		backgroundColor: "yellow",
+		borderRadius: 25,
+		margin: 20
 	},
-	loginBtn: {
-		width:"80%",
-		borderRadius:25,
-		height:50,
-		alignItems:"center",
-		justifyContent:"center",
-		marginTop:40,
-		backgroundColor:"#FF1493",
-	},
-	bigBlue: {
-		color: 'blue',
-		fontWeight: 'bold',
-		fontSize: 30,
-		padding: 50
-	}
-})
+});
