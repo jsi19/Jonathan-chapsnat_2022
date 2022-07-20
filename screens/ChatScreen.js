@@ -22,7 +22,7 @@ export default function ChatScreen({ navigation }) {
     await updateDoc(doc(db, "Chats", "myfirstchat"), {
       messages: arrayUnion(messages[0])
     });
-    setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
+    //setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
   }, []);
 
   return (
