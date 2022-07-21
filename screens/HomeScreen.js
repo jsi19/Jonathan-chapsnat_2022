@@ -27,7 +27,7 @@ export default function HomeScreen({ navigation }) {
 					// should we do something with that error??
 				});
 			}}>
-				<Text style={styles.loginText}>sign out</Text>
+				<Text style={styles.loginText}>Sign Out</Text>
 			</TouchableOpacity>
 
 			<Text>Hello, {user.email}! </Text>
@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
 		borderRadius:25,
 		margin: 25,
 		height:50,
+		alignSelf: "center",
 		alignItems:"center",
 		justifyContent:"center",
 		backgroundColor:"grey",
