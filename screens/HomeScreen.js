@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
 import { getAuth, signOut } from "firebase/auth";
+import { useAuthentication } from '../utils/hooks/useAuthentication';
 
 
 export default function HomeScreen({ navigation }) {
@@ -11,8 +12,6 @@ export default function HomeScreen({ navigation }) {
 
 	const auth = getAuth();
 	const user = auth.currentUser;
-
-	console.log(user, "<--- user in the home screen")
 
   //Makes sure there is a user in order to output protected routes
 	if (user !== null) {
