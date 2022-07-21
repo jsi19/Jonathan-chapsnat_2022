@@ -19,7 +19,7 @@ export default function ChatScreen({ navigation }) {
     return function cleanupBeforeUnmounting() {
       unsubscribeFromNewSnapshots();
     };
-  }, [user, userData]);
+  }, []);
 
   const onSend = useCallback(async (messages = []) => {
     await updateDoc(doc(db, "Chats", "myfirstchat"), {
@@ -29,24 +29,40 @@ export default function ChatScreen({ navigation }) {
     //setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
   }, []);
 
-  if (user && userData) {
-    return (
-      <GiftedChat
-        messages={messages}
-        onSend={(messages) => onSend(messages)}
-        user={{
-          // current "blue bubble" user
-          _id: user.uid,
-          name: userData.username,
-          avatar: "https://placeimg.com/140/140/any",
-        }}
-        inverted={true}
-        showUserAvatar={true}
-        renderUsernameOnMessage={true}
-      />
-    );
-  }
-  else {
-    return <Text> Loading </Text>
-  }
+  //Null Checking
+  return (
+    <GiftedChat
+      messages={messages}
+      onSend={(messages) => onSend(messages)}
+      user={{
+        // current "blue bubble" user
+        _id: user ? user.uid : "1",
+        name: userData ? userData.username: "Baker",
+        avatar: "https://placeimg.com/140/140/any",
+      }}
+      inverted={false}
+      showUserAvatar={true}
+      renderUsernameOnMessage={true}
+    />
+  );
+  // if (user && userData) {
+  //   return (
+  //     <GiftedChat
+  //       messages={messages}
+  //       onSend={(messages) => onSend(messages)}
+  //       user={{
+  //         // current "blue bubble" user
+  //         _id: user.uid,
+  //         name: userData.username,
+  //         avatar: "https://placeimg.com/140/140/any",
+  //       }}
+  //       inverted={true}
+  //       showUserAvatar={true}
+  //       renderUsernameOnMessage={true}
+  //     />
+  //   );
+  // }
+  // else {
+  //   return <Text> User not in Database </Text>
+  //}
 }
