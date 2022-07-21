@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Text, TextInput, View, TouchableOpacity, StyleSheet } from "react-native";
+import { Image, Text, TextInput, View, TouchableOpacity, StyleSheet } from "react-native";
 import { getAuth, signOut, signInWithEmailAndPassword} from "firebase/auth";
 
 export default function LoginScreen({navigation}) {
@@ -33,7 +33,9 @@ export default function LoginScreen({navigation}) {
     //return outputs a screen for login where user can input email/pass
 	return (
 		<>
-			<Text style={styles.bigBlue}>Login Here</Text>
+		<View style={styles.container}>
+			<Text style={styles.bigBlue}>ChapSnat</Text>
+			<Image style= {styles.img} source={require('../chapsnat.png')}/>
 			<View style={styles.inputView}>
 				<TextInput
 					placeholder='Email'
@@ -57,25 +59,39 @@ export default function LoginScreen({navigation}) {
             <TouchableOpacity style={styles.redirectBtn} onPress={() => {
                 navigation.navigate("Signup")
             }}>
-                <Text>Don't have an account? Sign up here</Text>
+                <Text>Sign Up</Text>
             </TouchableOpacity>
+		</View>
 		</>
 	)
 }
 
 const styles = StyleSheet.create({
+	container: {
+		backgroundColor: "#fffc01",
+		height: "100%",
+	},
+	img: {
+		resizeMode: "contain",
+		height: 200,
+		width: 200,
+		alignSelf: "center",
+		marginBottom: 20,
+	},
 	redirectBtn: {
-		width:"80%",
+		width:"40%",
 		borderRadius:25,
 		height:50,
+		alignSelf: "center",
 		alignItems:"center",
 		justifyContent:"center",
 		marginTop:40,
-		backgroundColor:"grey",
+		backgroundColor:"#3cb2e2",
 		color: "white"
 	},
 	inputView: {
-		backgroundColor: "#FFC0CB",
+		alignSelf: "center",
+		backgroundColor: "white",
 		borderRadius: 30,
 		width: "70%",
 		height: 45,
@@ -83,25 +99,28 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 	},
 	TextInput: {
+		alignSelf: "center",
 		height: 50,
 		flex: 1,
 		padding: 10,
 		marginLeft: 20,
 	},
 	loginBtn: {
-		width:"80%",
+		alignSelf: "center",
+		width:"40%",
 		borderRadius:25,
 		height:50,
 		alignItems:"center",
 		justifyContent:"center",
 		marginTop:40,
-		backgroundColor:"#FF1493",
+		backgroundColor:"#e82754",
 	},
 	bigBlue: {
+		alignSelf: "center",
 		color: 'blue',
 		fontWeight: 'bold',
 		fontSize: 30,
-		padding: 50
+		padding: 30
 	}
 })
 

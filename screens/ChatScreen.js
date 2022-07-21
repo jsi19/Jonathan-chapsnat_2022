@@ -30,14 +30,15 @@ export default function ChatScreen({ navigation }) {
   }, []);
 
   //Null Checking
+
   return (
     <GiftedChat
       messages={messages}
       onSend={(messages) => onSend(messages)}
       user={{
         // current "blue bubble" user
-        _id: user ? user.uid : "1",
-        name: userData ? userData.username: "Baker",
+        _id: user && user.uid,
+        name: userData && userData.username,
         avatar: "https://placeimg.com/140/140/any",
       }}
       inverted={false}
